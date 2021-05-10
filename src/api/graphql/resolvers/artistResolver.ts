@@ -5,7 +5,7 @@ import {
   mapArtistTopAlbumsToSchema,
   mapArtistTopTracksToSchema
 } from '../../../mappers/mapArtistToSchema';
-import { Query, Resolver, Args, Ctx } from 'type-graphql';
+import { Query, Resolver, Args, Ctx, Authorized } from 'type-graphql';
 import { Artist, ArtistSearchResult, ArtistTop, ArtistTopArgs, ArtistTopAlbumsArgs, ArtistTopAlbums } from '../schemas';
 import { ArtistSearchArgs, ArtistInfoArgs, ArtistTopTracksArgs } from '../schemas/Artist/args';
 import { Context } from 'src/models/Context';
@@ -25,6 +25,7 @@ export class ArtistResolver {
   }
 
   @Query(returns => ArtistSearchResult)
+  @Authorized()
   async searchArtist (
     @Args() args: ArtistSearchArgs,
     @Ctx() ctx: Context

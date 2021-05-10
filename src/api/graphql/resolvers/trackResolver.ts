@@ -1,4 +1,4 @@
-import { Query, Resolver, Args, Ctx } from 'type-graphql';
+import { Query, Resolver, Args, Ctx, Authorized } from 'type-graphql';
 import { Context } from 'src/models/Context';
 import {
   mapSearchResultsToSchema,
@@ -21,6 +21,7 @@ export class TrackResolver {
   }
 
   @Query(returns => TrackSearch)
+  @Authorized()
   async searchTrack (
     @Args() args: TrackSearchArgs,
     @Ctx() ctx: Context

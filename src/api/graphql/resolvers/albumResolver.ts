@@ -1,4 +1,4 @@
-import { Query, Resolver, Args, Ctx } from 'type-graphql';
+import { Query, Resolver, Args, Ctx, Authorized } from 'type-graphql';
 import { Context } from 'src/models/Context';
 import {
   mapAlbumInfoToSchema,
@@ -20,6 +20,7 @@ export class AlbumResolver {
   }
 
   @Query(returns => AlbumSearch)
+  @Authorized()
   async searchAlbum (
     @Args() args: AlbumSearchArgs,
     @Ctx() ctx: Context
