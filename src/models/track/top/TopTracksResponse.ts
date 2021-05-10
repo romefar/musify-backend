@@ -1,9 +1,9 @@
 import { ResponseImage } from 'src/models/ResponseImage';
-import { Track } from './Track';
+import { TopTrackItem } from './Track';
 
 export interface TopTracksResponse {
   tracks: {
-    track: Track<ResponseImage>[];
+    track: TopTrackItem<ResponseImage>[];
     ['@attr']: {
       page: string;
     }

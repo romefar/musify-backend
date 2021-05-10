@@ -1,0 +1,12 @@
+version: "3"
+services:
+  musify-backend:
+    container_name: musify-backend
+    image: nodejs-musify
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4001:4000"
+    command: npm run dev

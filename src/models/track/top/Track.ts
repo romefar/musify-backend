@@ -1,6 +1,6 @@
 import { Image, ArtistShortInfo } from 'src/models';
 
-export interface Track<TImage = Image> {
+export interface TopTrackItem<TImage = Image> {
   name: string;
   duration: number;
   playcount: number;
@@ -13,5 +13,5 @@ export interface Track<TImage = Image> {
 
 export interface TopTrack {
   page: number;
-  tracks: Track[];
+  tracks: TopTrackItem[];
 }
